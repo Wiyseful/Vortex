@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Parts Store Header</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--o:#ff6638;--g:#16a34a;--line:#e7e7e7;--muted:#6b7280}
+*{box-sizing:border-box}
+body{margin:0;background:#f4f4f4;font-family:"Barlow",system-ui,sans-serif;color:#111}
+a{color:inherit;text-decoration:none}
+svg{width:1em;height:1em;fill:currentColor;display:block;flex:none}
+.wrap{max-width:1360px;margin:0 auto;padding:0 32px}
+.note{max-width:1360px;margin:0 auto;padding:12px 32px;font-size:14px;color:var(--muted)}
+/* 1. utility bar */
+.util{background:#0a0a0a;color:#cfcfcf;font-size:14px}
+.util .wrap{height:38px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.perks{display:flex;gap:28px;min-width:0}
+.perks span{display:flex;align-items:center;gap:8px;white-space:nowrap}
+.perks svg{font-size:17px;color:#fff}
+.perks b{color:#fff;font-weight:600}
+.ulinks{display:flex;gap:22px;white-space:nowrap}
+.ulinks a{color:#cfcfcf}
+@media (max-width:1280px){.perks span:nth-child(3){display:none}}
+@media (max-width:1240px){.cats a{padding:0 10px;font-size:18px}.act small{display:none}}
+/* 2. main bar */
+.main{background:#111;color:#fff;border-bottom:1px solid #222}
+.main .wrap{height:84px;display:flex;align-items:center;gap:28px}
+.logo img{width:200px;height:auto;display:block}
+.search{flex:1;display:flex;height:48px;min-width:0;max-width:640px}
+.search input{flex:1;min-width:0;border:0;border-radius:6px 0 0 6px;padding:0 16px;font:400 16px "Barlow",sans-serif;color:#111;background:#fff;outline:none}
+.search input::placeholder{color:#6b7280}
+.search button{width:56px;border:0;border-radius:0 6px 6px 0;background:var(--o);color:#fff;display:flex;align-items:center;justify-content:center;font-size:22px;box-shadow:inset 0 -2px 0 rgba(0,0,0,.16);cursor:pointer}
+.garage{display:flex;align-items:center;gap:12px;height:52px;padding:0 14px 0 12px;border:1px solid #2e2e2e;border-radius:6px;background:#181818;min-width:0;white-space:nowrap}
+.garage .gi{width:34px;height:34px;border-radius:50%;background:#232323;display:flex;align-items:center;justify-content:center;font-size:20px;color:#fff}
+.garage small{display:flex;align-items:center;gap:5px;font-size:13px;color:#4ade80;font-weight:600}
+.garage small svg{font-size:14px}
+.garage strong{display:block;font:600 18px/1.1 "Barlow Condensed",sans-serif;color:#fff}
+.garage>svg{font-size:13px;color:#9a9a9a;margin-left:2px}
+.acts{display:flex;align-items:center;gap:22px;margin-left:auto}
+.act{display:flex;align-items:center;gap:10px;white-space:nowrap}
+.act>svg{font-size:28px}
+.act small{display:block;font-size:13px;color:#a3a3a3}
+.act strong{display:block;font:600 17px/1.1 "Barlow Condensed",sans-serif}
+.cartic{position:relative}
+.cartic i{position:absolute;top:-7px;right:-9px;min-width:20px;height:20px;padding:0 5px;border-radius:10px;background:var(--o);color:#fff;font:700 12px/20px "Barlow",sans-serif;font-style:normal;text-align:center}
+.cartic svg{font-size:28px}
+/* 3. category nav */
+.nav{background:#1a1a1a;color:#fff}
+.nav .wrap{height:52px;display:flex;align-items:center;justify-content:space-between}
+.cats{display:flex;gap:4px;height:100%;align-items:center}
+.cats a{display:flex;align-items:center;gap:6px;height:38px;padding:0 14px;border-radius:5px;font:600 19px/1 "Barlow Condensed",sans-serif;white-space:nowrap}
+.cats a svg{font-size:12px;color:#8a8a8a}
+.cats a.on{background:#fff;color:#111}
+.cats a.on svg{color:#111;transform:rotate(180deg)}
+.help{display:flex;align-items:center;gap:8px;font:600 17px "Barlow Condensed",sans-serif;color:#fff;white-space:nowrap}
+.help svg{font-size:19px}
+.help span{color:#a3a3a3;font-weight:500}
+/* mega menu */
+.mega{background:#fff;border-bottom:1px solid var(--line);box-shadow:0 18px 30px rgba(0,0,0,.08)}
+.mega .wrap{display:grid;grid-template-columns:1fr 1fr 1fr 1.6fr;gap:40px;padding-top:28px;padding-bottom:30px}
+.mc h5{margin:0 0 10px;font:700 20px/1 "Barlow Condensed",sans-serif}
+.mc ul{list-style:none;margin:0;padding:0}
+.mc li a{display:flex;justify-content:space-between;gap:12px;padding:8px 0;border-bottom:1px solid #f0f0f0;font-size:16px;white-space:nowrap}
+.mc li a span{overflow:hidden;text-overflow:ellipsis;min-width:0}
+.mc li a em{font-style:normal;color:#9a9a9a;font-size:14px}
+.mc .all{display:inline-block;margin-top:14px;font-size:16px;text-decoration:underline;text-underline-offset:3px}
+.mps{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.mp b{display:block;margin-top:10px;font:700 19px/1 "Barlow Condensed",sans-serif}
+.mp>span:not(.mpi){display:block;margin-top:4px;font-size:14px;color:var(--muted)}
+.mpi{display:block;aspect-ratio:4/3;border-radius:6px;background:#f2f2f2 center/cover no-repeat;border:1px solid #eee}
+/* page under it */
+.crumb{background:#fff}
+.crumb .wrap{height:44px;display:flex;align-items:center;gap:8px;font-size:14px;color:var(--muted)}
+.crumb a{color:#111;text-decoration:underline;text-underline-offset:3px}
+.page{height:160px}
+/* phone */
+.mob{display:none}
+@media (max-width:1199px){
+  .util,.main,.nav,.mega,.crumb .wrap{display:none}
+  .note{padding:12px 16px}
+  .mob{display:block;background:#111;color:#fff}
+  .mtop{height:60px;display:flex;align-items:center;gap:14px;padding:0 16px}
+  .mtop .burger{font-size:28px}
+  .mtop img{width:150px;display:block}
+  .mtop .r{margin-left:auto;display:flex;align-items:center;gap:18px}
+  .mtop .r>svg{font-size:26px}
+  .mtop .cartic svg{font-size:26px}
+  .msearch{padding:0 16px 12px}
+  .msearch .search{height:46px;max-width:none}
+  .mgarage{display:flex;align-items:center;gap:10px;margin:0;padding:10px 16px;border-top:1px solid #262626;background:#181818;white-space:nowrap}
+  .mgarage .gi{font-size:20px}
+  .mgarage small{display:flex;align-items:center;gap:5px;font-size:13px;color:#4ade80;font-weight:600}
+  .mgarage small svg{font-size:14px}
+  .mgarage strong{font:600 17px/1.1 "Barlow Condensed",sans-serif;overflow:hidden;text-overflow:ellipsis;min-width:0}
+  .mgarage .chg{margin-left:auto;font-size:15px;text-decoration:underline;text-underline-offset:3px;color:#fff}
+  .mperk{display:flex;align-items:center;justify-content:center;gap:8px;height:34px;background:#0a0a0a;color:#cfcfcf;font-size:13px;white-space:nowrap}
+  .mperk svg{font-size:15px;color:#fff}
+  .mperk b{color:#fff;font-weight:600}
+}
+</style></head><body>
+<p class="note">Mockup only (desktop with the Bumpers &amp; Armor menu open; narrow the window to see the phone header). Your logo, menu photos and real part counts.</p>
+
+<div class="util"><div class="wrap">
+  <div class="perks">
+    <span><svg viewBox="0 0 256 256" aria-hidden="true"><path d="M255.42,117l-14-35A15.93,15.93,0,0,0,226.58,72H192V64a8,8,0,0,0-8-8H32A16,16,0,0,0,16,72V184a16,16,0,0,0,16,16H49a32,32,0,0,0,62,0h50a32,32,0,0,0,62,0h17a16,16,0,0,0,16-16V120A7.94,7.94,0,0,0,255.42,117ZM192,88h34.58l9.6,24H192ZM32,72H176v64H32ZM80,208a16,16,0,1,1,16-16A16,16,0,0,1,80,208Zm81-24H111a32,32,0,0,0-62,0H32V152H176v12.31A32.11,32.11,0,0,0,161,184Zm31,24a16,16,0,1,1,16-16A16,16,0,0,1,192,208Zm48-24H223a32.06,32.06,0,0,0-31-24V128h48Z"/></svg><b>Free shipping</b> on orders over $150</span>
+    <span><svg viewBox="0 0 256 256" aria-hidden="true"><path d="M225.86,102.82c-3.77-3.94-7.67-8-9.14-11.57-1.36-3.27-1.44-8.69-1.52-13.94-.15-9.76-.31-20.82-8-28.51s-18.75-7.85-28.51-8c-5.25-.08-10.67-.16-13.94-1.52-3.56-1.47-7.63-5.37-11.57-9.14C146.28,23.51,138.44,16,128,16s-18.27,7.51-25.18,14.14c-3.94,3.77-8,7.67-11.57,9.14C88,40.64,82.56,40.72,77.31,40.8c-9.76.15-20.82.31-28.51,8S41,67.55,40.8,77.31c-.08,5.25-.16,10.67-1.52,13.94-1.47,3.56-5.37,7.63-9.14,11.57C23.51,109.72,16,117.56,16,128s7.51,18.27,14.14,25.18c3.77,3.94,7.67,8,9.14,11.57,1.36,3.27,1.44,8.69,1.52,13.94.15,9.76.31,20.82,8,28.51s18.75,7.85,28.51,8c5.25.08,10.67.16,13.94,1.52,3.56,1.47,7.63,5.37,11.57,9.14C109.72,232.49,117.56,240,128,240s18.27-7.51,25.18-14.14c3.94-3.77,8-7.67,11.57-9.14,3.27-1.36,8.69-1.44,13.94-1.52,9.76-.15,20.82-.31,28.51-8s7.85-18.75,8-28.51c.08-5.25.16-10.67,1.52-13.94,1.47-3.56,5.37-7.63,9.14-11.57C232.49,146.28,240,138.44,240,128S232.49,109.73,225.86,102.82Zm-52.2,6.84-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35a8,8,0,0,1,11.32,11.32Z"/></svg><b>Fitment checked</b> on every order</span>
+    <span><svg viewBox="0 0 256 256" aria-hidden="true"><path d="M140,128a12,12,0,1,1-12-12A12,12,0,0,1,140,128ZM84,116a12,12,0,1,0,12,12A12,12,0,0,0,84,116Zm88,0a12,12,0,1,0,12,12A12,12,0,0,0,172,116Zm60,12A104,104,0,0,1,79.12,219.82L45.07,231.17a16,16,0,0,1-20.24-20.24l11.35-34.05A104,104,0,1,1,232,128Zm-16,0A88,88,0,1,0,51.81,172.06a8,8,0,0,1,.66,6.54L40,216,77.4,203.53a7.85,7.85,0,0,1,2.53-.42,8,8,0,0,1,4,1.08A88,88,0,0,0,216,128Z"/></svg>Questions? <b>Text 909-772-8050</b></span>
+  </div>
+  <div class="ulinks"><a href="#">Track order</a><a href="#">Help &amp; FAQ</a><a href="#">Contact us</a></div>
+</div></div>
+
+<header class="main"><div class="wrap">
+  <a class="logo" href="#"><img src="https://cdn.shopify.com/s/files/1/0684/0860/6794/files/bolded_white_logo.svg" alt="Bronco Forge"></a>
+  <form class="search" onsubmit="return false"><input placeholder="Search parts, brands or part #"><button aria-label="Search"><svg viewBox="0 0 256 256" aria-hidden="true"><path d="M232.49,215.51,185,168a92.12,92.12,0,1,0-17,17l47.53,47.54a12,12,0,0,0,17-17ZM44,112a68,68,0,1,1,68,68A68.07,68.07,0,0,1,44,112Z"/></svg></button></form>
+  <a class="garage" href="#"><span class="gi"><svg viewBox="0 0 256 256" aria-hidden="true"><path d="M240,88h-9.53l-9.29-43.35A16.08,16.08,0,0,0,205.53,32H50.47A16.08,16.08,0,0,0,34.82,44.65L25.53,88H16a8,8,0,0,0,0,16h8v96a16,16,0,0,0,16,16H64a16,16,0,0,0,16-16V176h96v24a16,16,0,0,0,16,16h24a16,16,0,0,0,16-16V104h8a8,8,0,0,0,0-16ZM50.47,48H205.53l8.57,40H41.9ZM64,200H40V176H64Zm128,0V176h24v24Zm24-40H152V128a8,8,0,0,0-16,0v32H120V128a8,8,0,0,0-16,0v32H40V104H216ZM56,132a12,12,0,1,1,12,12A12,12,0,0,1,56,132Zm120,0a12,12,0,1,1,12,12A12,12,0,0,1,176,132Z"/></svg></span><span><small><svg viewBox="0 0 256 256" aria-hidden="true"><path d="M225.86,102.82c-3.77-3.94-7.67-8-9.14-11.57-1.36-3.27-1.44-8.69-1.52-13.94-.15-9.76-.31-20.82-8-28.51s-18.75-7.85-28.51-8c-5.25-.08-10.67-.16-13.94-1.52-3.56-1.47-7.63-5.37-11.57-9.14C146.28,23.51,138.44,16,128,16s-18.27,7.51-25.18,14.14c-3.94,3.77-8,7.67-11.57,9.14C88,40.64,82.56,40.72,77.31,40.8c-9.76.15-20.82.31-28.51,8S41,67.55,40.8,77.31c-.08,5.25-.16,10.67-1.52,13.94-1.47,3.56-5.37,7.63-9.14,11.57C23.51,109.72,16,117.56,16,128s7.51,18.27,14.14,25.18c3.77,3.94,7.67,8,9.14,11.57,1.36,3.27,1.44,8.69,1.52,13.94.15,9.76.31,20.82,8,28.51s18.75,7.85,28.51,8c5.25.08,10.67.16,13.94,1.52,3.56,1.47,7.63,5.37,11.57,9.14C109.72,232.49,117.56,240,128,240s18.27-7.51,25.18-14.14c3.94-3.77,8-7.67,11.57-9.14,3.27-1.36,8.69-1.44,13.94-1.52,9.76-.15,20.82-.31,28.51-8s7.85-18.75,8-28.51c.08-5.25.16-10.67,1.52-13.94,1.47-3.56,5.37-7.63,9.14-11.57C232.49,146.28,240,138.44,240,128S232.49,109.73,225.86,102.82Zm-52.2,6.84-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35a8,8,0,0,1,11.32,11.32Z"/></svg>My Bronco</small><strong>Badlands · 4-Door · Hard Top</strong></span><svg viewBox="0 0 256 256" aria-hidden="true"><path d="M216.49,104.49l-80,80a12,12,0,0,1-17,0l-80-80a12,12,0,0,1,17-17L128,159l71.51-71.52a12,12,0,0,1,17,17Z"/></svg></a>
+  <div class="acts">
+    <a class="act" href="#"><svg viewBox="0 0 256 256" aria-hidden="true"><path d="M230.92,212c-15.23-26.33-38.7-45.21-66.09-54.16a72,72,0,1,0-73.66,0C63.78,166.78,40.31,185.66,25.08,212a8,8,0,1,0,13.85,8c18.84-32.56,52.14-52,89.07-52s70.23,19.44,89.07,52a8,8,0,1,0,13.85-8ZM72,96a56,56,0,1,1,56,56A56.06,56.06,0,0,1,72,96Z"/></svg><span><small>Hello, sign in</small><strong>Account</strong></span></a>
+    <a class="act" href="#"><span class="cartic"><svg viewBox="0 0 256 256" aria-hidden="true"><path d="M104,216a16,16,0,1,1-16-16A16,16,0,0,1,104,216Zm88-16a16,16,0,1,0,16,16A16,16,0,0,0,192,200ZM239.71,74.14l-25.64,92.28A24.06,24.06,0,0,1,191,184H92.16A24.06,24.06,0,0,1,69,166.42L33.92,40H16a8,8,0,0,1,0-16H40a8,8,0,0,1,7.71,5.86L57.19,64H232a8,8,0,0,1,7.71,10.14ZM221.47,80H61.64l22.81,82.14A8,8,0,0,0,92.16,168H191a8,8,0,0,0,7.71-5.86Z"/></svg><i>5</i></span><span><small>Cart</small><strong>$5,314.94</strong></span></a>
+  </div>
+</div></header>
+
+<nav class="nav"><div class="wrap">
+  <div class="cats"><a href="#" class="on">Bumpers &amp; Armor<svg viewBox="0 0 256 256" aria-hidden="true"><path d="M216.49,104.49l-80,80a12,12,0,0,1-17,0l-80-80a12,12,0,0,1,17-17L128,159l71.51-71.52a12,12,0,0,1,17,17Z"/></svg></a><a href="#" class="">Exterior<svg viewBox="0 0 256 256" aria-hidden="true"><path d="M216.49,104.49l-80,80a12,12,0,0,1-17,0l-80-80a12,12,0,0,1,17-17L128,159l71.51-71.52a12,12,0,0,1,17,17Z"/></svg></a><a href="#" class="">Interior<svg viewBox="0 0 256 256" aria-hidden="true"><path d="M216.49,104.49l-80,80a12,12,0,0,1-17,0l-80-80a12,12,0,0,1,17-17L128,159l71.51-71.52a12,12,0,0,1,17,17Z"/></svg></a><a href="#" class="">Lighting<svg viewBox="0 0 256 256" aria-hidden="true"><path d="M216.49,104.49l-80,80a12,12,0,0,1-17,0l-80-80a12,12,0,0,1,17-17L128,159l71.51-71.52a12,12,0,0,1,17,17Z"/></svg></a><a href="#" class="">Recovery<svg viewBox="0 0 256 256" aria-hidden="true"><path d="M216.49,104.49l-80,80a12,12,0,0,1-17,0l-80-80a12,12,0,0,1,17-17L128,159l71.51-71.52a12,12,0,0,1,17,17Z"/></svg></a><a href="#" class="">Wheels &amp; Suspension<svg viewBox="0 0 256 256" aria-hidden="true"><path d="M216.49,104.49l-80,80a12,12,0,0,1-17,0l-80-80a12,12,0,0,1,17-17L128,159l71.51-71.52a12,12,0,0,1,17,17Z"/></svg></a><a href="#" class="">Brands<svg viewBox="0 0 256 256" aria-hidden="true"><path d="M216.49,104.49l-80,80a12,12,0,0,1-17,0l-80-80a12,12,0,0,1,17-17L128,159l71.51-71.52a12,12,0,0,1,17,17Z"/></svg></a></div>
+  <a class="help" href="#"><svg viewBox="0 0 256 256" aria-hidden="true"><path d="M140,128a12,12,0,1,1-12-12A12,12,0,0,1,140,128ZM84,116a12,12,0,1,0,12,12A12,12,0,0,0,84,116Zm88,0a12,12,0,1,0,12,12A12,12,0,0,0,172,116Zm60,12A104,104,0,0,1,79.12,219.82L45.07,231.17a16,16,0,0,1-20.24-20.24l11.35-34.05A104,104,0,1,1,232,128Zm-16,0A88,88,0,1,0,51.81,172.06a8,8,0,0,1,.66,6.54L40,216,77.4,203.53a7.85,7.85,0,0,1,2.53-.42,8,8,0,0,1,4,1.08A88,88,0,0,0,216,128Z"/></svg>Not sure it fits? <span>Text us a photo</span></a>
+</div></nav>
+
+<div class="mega"><div class="wrap">
+  <div class="mc"><h5>Bumpers</h5><ul><li><a href="#"><span>Front bumpers</span><em>41</em></a></li><li><a href="#"><span>Rear bumpers</span><em>30</em></a></li><li><a href="#"><span>Front &amp; rear packages</span><em>6</em></a></li><li><a href="#"><span>Raptor bumpers</span><em>18</em></a></li><li><a href="#"><span>Bull bars &amp; grille guards</span><em>19</em></a></li><li><a href="#"><span>Bumper accessories</span><em>40</em></a></li></ul></div>
+  <div><div class="mc"><h5>Armor</h5><ul><li><a href="#"><span>Rock sliders &amp; body armor</span><em>26</em></a></li><li><a href="#"><span>Skid plates</span><em>19</em></a></li><li><a href="#"><span>Fender flares &amp; deletes</span><em>16</em></a></li><li><a href="#"><span>D-rings &amp; recovery points</span><em>6</em></a></li></ul><a class="all" href="#">Shop all Bumpers &amp; Armor</a></div></div>
+  <div class="mc"><h5>Top brands</h5><ul><li><a href="#"><span>Addictive Desert Designs</span></a></li><li><a href="#"><span>Barricade</span></a></li><li><a href="#"><span>DV8 Offroad</span></a></li><li><a href="#"><span>RedRock</span></a></li><li><a href="#"><span>Turn Offroad</span></a></li></ul></div>
+  <div class="mps">
+    <a class="mp" href="#"><span class="mpi" style="background-image:url(https://cdn.shopify.com/s/files/1/0684/0860/6794/files/2021-2025-Ford-Bronco-Tube-Series-Front-Bumper-Offtruck-1.webp?width=700)"></span><b>Front bumpers</b><span>41 parts</span></a>
+    <a class="mp" href="#"><span class="mpi" style="background-image:url(https://cdn.shopify.com/s/files/1/0684/0860/6794/files/op7JRsCA.jpg?width=700)"></span><b>Rock sliders</b><span>26 parts</span></a>
+  </div>
+</div></div>
+
+<div class="mob">
+  <div class="mperk"><svg viewBox="0 0 256 256" aria-hidden="true"><path d="M255.42,117l-14-35A15.93,15.93,0,0,0,226.58,72H192V64a8,8,0,0,0-8-8H32A16,16,0,0,0,16,72V184a16,16,0,0,0,16,16H49a32,32,0,0,0,62,0h50a32,32,0,0,0,62,0h17a16,16,0,0,0,16-16V120A7.94,7.94,0,0,0,255.42,117ZM192,88h34.58l9.6,24H192ZM32,72H176v64H32ZM80,208a16,16,0,1,1,16-16A16,16,0,0,1,80,208Zm81-24H111a32,32,0,0,0-62,0H32V152H176v12.31A32.11,32.11,0,0,0,161,184Zm31,24a16,16,0,1,1,16-16A16,16,0,0,1,192,208Zm48-24H223a32.06,32.06,0,0,0-31-24V128h48Z"/></svg><b>Free shipping</b> over $150 · Fitment checked</div>
+  <div class="mtop"><span class="burger"><svg viewBox="0 0 256 256" aria-hidden="true"><path d="M224,128a8,8,0,0,1-8,8H40a8,8,0,0,1,0-16H216A8,8,0,0,1,224,128ZM40,72H216a8,8,0,0,0,0-16H40a8,8,0,0,0,0,16ZM216,184H40a8,8,0,0,0,0,16H216a8,8,0,0,0,0-16Z"/></svg></span><img src="https://cdn.shopify.com/s/files/1/0684/0860/6794/files/bolded_white_logo.svg" alt="Bronco Forge"><div class="r"><svg viewBox="0 0 256 256" aria-hidden="true"><path d="M230.92,212c-15.23-26.33-38.7-45.21-66.09-54.16a72,72,0,1,0-73.66,0C63.78,166.78,40.31,185.66,25.08,212a8,8,0,1,0,13.85,8c18.84-32.56,52.14-52,89.07-52s70.23,19.44,89.07,52a8,8,0,1,0,13.85-8ZM72,96a56,56,0,1,1,56,56A56.06,56.06,0,0,1,72,96Z"/></svg><span class="cartic"><svg viewBox="0 0 256 256" aria-hidden="true"><path d="M104,216a16,16,0,1,1-16-16A16,16,0,0,1,104,216Zm88-16a16,16,0,1,0,16,16A16,16,0,0,0,192,200ZM239.71,74.14l-25.64,92.28A24.06,24.06,0,0,1,191,184H92.16A24.06,24.06,0,0,1,69,166.42L33.92,40H16a8,8,0,0,1,0-16H40a8,8,0,0,1,7.71,5.86L57.19,64H232a8,8,0,0,1,7.71,10.14ZM221.47,80H61.64l22.81,82.14A8,8,0,0,0,92.16,168H191a8,8,0,0,0,7.71-5.86Z"/></svg><i>5</i></span></div></div>
+  <div class="msearch"><form class="search" onsubmit="return false"><input placeholder="Search parts, brands or part #"><button aria-label="Search"><svg viewBox="0 0 256 256" aria-hidden="true"><path d="M232.49,215.51,185,168a92.12,92.12,0,1,0-17,17l47.53,47.54a12,12,0,0,0,17-17ZM44,112a68,68,0,1,1,68,68A68.07,68.07,0,0,1,44,112Z"/></svg></button></form></div>
+  <div class="mgarage"><span class="gi"><svg viewBox="0 0 256 256" aria-hidden="true"><path d="M240,88h-9.53l-9.29-43.35A16.08,16.08,0,0,0,205.53,32H50.47A16.08,16.08,0,0,0,34.82,44.65L25.53,88H16a8,8,0,0,0,0,16h8v96a16,16,0,0,0,16,16H64a16,16,0,0,0,16-16V176h96v24a16,16,0,0,0,16,16h24a16,16,0,0,0,16-16V104h8a8,8,0,0,0,0-16ZM50.47,48H205.53l8.57,40H41.9ZM64,200H40V176H64Zm128,0V176h24v24Zm24-40H152V128a8,8,0,0,0-16,0v32H120V128a8,8,0,0,0-16,0v32H40V104H216ZM56,132a12,12,0,1,1,12,12A12,12,0,0,1,56,132Zm120,0a12,12,0,1,1,12,12A12,12,0,0,1,176,132Z"/></svg></span><span style="min-width:0;display:flex;flex-direction:column"><small><svg viewBox="0 0 256 256" aria-hidden="true"><path d="M225.86,102.82c-3.77-3.94-7.67-8-9.14-11.57-1.36-3.27-1.44-8.69-1.52-13.94-.15-9.76-.31-20.82-8-28.51s-18.75-7.85-28.51-8c-5.25-.08-10.67-.16-13.94-1.52-3.56-1.47-7.63-5.37-11.57-9.14C146.28,23.51,138.44,16,128,16s-18.27,7.51-25.18,14.14c-3.94,3.77-8,7.67-11.57,9.14C88,40.64,82.56,40.72,77.31,40.8c-9.76.15-20.82.31-28.51,8S41,67.55,40.8,77.31c-.08,5.25-.16,10.67-1.52,13.94-1.47,3.56-5.37,7.63-9.14,11.57C23.51,109.72,16,117.56,16,128s7.51,18.27,14.14,25.18c3.77,3.94,7.67,8,9.14,11.57,1.36,3.27,1.44,8.69,1.52,13.94.15,9.76.31,20.82,8,28.51s18.75,7.85,28.51,8c5.25.08,10.67.16,13.94,1.52,3.56,1.47,7.63,5.37,11.57,9.14C109.72,232.49,117.56,240,128,240s18.27-7.51,25.18-14.14c3.94-3.77,8-7.67,11.57-9.14,3.27-1.36,8.69-1.44,13.94-1.52,9.76-.15,20.82-.31,28.51-8s7.85-18.75,8-28.51c.08-5.25.16-10.67,1.52-13.94,1.47-3.56,5.37-7.63,9.14-11.57C232.49,146.28,240,138.44,240,128S232.49,109.73,225.86,102.82Zm-52.2,6.84-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35a8,8,0,0,1,11.32,11.32Z"/></svg>My Bronco</small><strong>Badlands · 4-Door · Hard Top</strong></span><a class="chg" href="#">Change</a></div>
+</div>
+
+<div class="crumb"><div class="wrap"><a href="#">Home</a> / <span>Rear Bumpers</span></div></div>
+<div class="page"></div>
+</body></html>
